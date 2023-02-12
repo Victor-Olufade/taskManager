@@ -1,6 +1,9 @@
 import React, { FC, ReactElement } from 'react'
 import {Grid} from '@mui/material'
-import Profile from '../profile/Profile'
+import Profile from '../profile/Profile';
+import CreateTask from '../createTasks/CreateTask';
+
+
 const Sidebar: FC = (): ReactElement => {
   return (
     <Grid item md={4} sx={{
@@ -15,7 +18,8 @@ const Sidebar: FC = (): ReactElement => {
         flexDirection: 'column',
         alignItems: 'center'
     }}>
-       <Profile/>
+       <Profile name="Pelumi"/>
+       <CreateTask/>
     </Grid>
   )
 }

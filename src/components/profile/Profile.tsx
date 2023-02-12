@@ -1,7 +1,14 @@
 import React, { FC, ReactElement } from 'react'
 import {Avatar, Box, Typography} from '@mui/material';
+import PropTypes from 'prop-types';
 
-const Profile: FC = (): ReactElement => {
+
+
+interface Iprofile {
+    name?: string
+}
+
+const Profile: FC<Iprofile> = ({name = 'Victor'}): ReactElement => {
   return (
     <Box
     display='flex'
@@ -17,11 +24,13 @@ const Profile: FC = (): ReactElement => {
             marginBottom: '16px'
         }}
         >
-        <Typography variant='h4' color='text.primary'>V</Typography>
+        <Typography variant='h4' color='text.primary'>
+            {name.substring(0, 1)}
+        </Typography>
         </Avatar>
 
         <Typography variant='h6' color='text.primary'>
-            Welcome, Victor
+            Welcome, {name}
         </Typography>
 
         <Typography variant='body1' color='text.primary'>
@@ -29,6 +38,10 @@ const Profile: FC = (): ReactElement => {
         </Typography>
     </Box>
   )
+}
+
+Profile.propTypes = {
+    name: PropTypes.string,
 }
 
 export default Profile
