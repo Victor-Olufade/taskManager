@@ -6,8 +6,6 @@ import PropTypes from 'prop-types';
 
 const TaskDescription: FC<Itextfield> = ({onChange, disabled=false}): ReactElement => {
 
-  onChange = (e) => console.log(e);
-
   return (
     <TextField 
     id="description"

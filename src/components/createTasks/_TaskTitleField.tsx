@@ -4,8 +4,6 @@ import { Itextfield } from './interfaces/Itextfield'
 import PropTypes from 'prop-types';
 
 const TaskTitleField: FC<Itextfield> = ({onChange, disabled=false}): ReactElement => {
-   
-    onChange = (e) => console.log(e);
     
   return (
     <TextField
