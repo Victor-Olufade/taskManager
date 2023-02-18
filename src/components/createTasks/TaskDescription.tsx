@@ -4,11 +4,12 @@ import { Itextfield } from './interfaces/Itextfield';
 import PropTypes from 'prop-types';
 
 
-const TaskDescription: FC<Itextfield> = ({onChange, disabled=false}): ReactElement => {
+const TaskDescription: FC<Itextfield> = ({onChange, disabled=false, value}): ReactElement => {
 
   return (
     <TextField 
     id="description"
+    value={value}
     name="description"
     label="Description"
     placeholder="Description"

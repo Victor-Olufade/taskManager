@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, useState, useEffect } from 'react';
+import React, { FC, ReactElement, useState, useEffect, useContext } from 'react';
 import {
   Box,
   Typography,
@@ -17,6 +17,7 @@ import { useMutation } from 'react-query';
 import { sendApiRequest } from '../../helpers/sendApiRequests';
 import { IcreateTask } from '../taskarea/interfaces/IcreateTask';
 import { toast } from 'react-toastify';
+import { TaskStatusContext } from '../../context';
 
 const CreateTask: FC = (): ReactElement => {
   const [title, setTitle] = useState<string>('');
@@ -27,6 +28,8 @@ const CreateTask: FC = (): ReactElement => {
   const [priority, setPriority] = useState<string>(
     Priority.normal,
   );
+
+  const {toggle} = useContext(TaskStatusContext)
 
   const [showSuccess, setShowSuccess] = useState<boolean>(false);
 
@@ -60,6 +63,7 @@ const CreateTask: FC = (): ReactElement => {
   useEffect(()=>{
     if(createTaskMutation.isSuccess){
       setShowSuccess(true)
+      toggle()
     }
     const successTimeout = setTimeout(()=>{
       setShowSuccess(false)
@@ -97,11 +101,13 @@ const CreateTask: FC = (): ReactElement => {
 
       <Stack width="100%" spacing={2}>
         <TaskTitleField
+          value={title}
           onChange={(e) => setTitle(e.target.value)}
           disabled={createTaskMutation.isLoading}
         />
 
         <TaskDescription
+          value={description}
           onChange={(e) => setDescription(e.target.value)}
           disabled={createTaskMutation.isLoading}
         />
@@ -125,10 +131,6 @@ const CreateTask: FC = (): ReactElement => {
               {
                 value: Status.inProgress,
                 label: Status.inProgress,
-              },
-              {
-                value: Status.completed,
-                label: Status.completed,
               },
             ]}
             value={status}

@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from 'react';
+import React, { FC, ReactElement, useEffect, useContext } from 'react';
 import {
   Grid,
   Box,
@@ -13,9 +13,13 @@ import { sendApiRequest } from '../../helpers/sendApiRequests';
 import { ITaskApi } from './interfaces/ITaskApi';
 import { Status } from '../createTasks/enums';
 import { IupdateTask } from './interfaces/IupdateTask';
+import { countTasks } from './helpers/CountTasks';
+import { TaskStatusContext } from '../../context';
 
 const Taskarea: FC = (): ReactElement => {
+
   const baseUrl = process.env.REACT_APP_BASEURL as string;
+
   const { error, isLoading, data, refetch } = useQuery(
     'tasks',
     async () => {
@@ -46,6 +50,19 @@ const Taskarea: FC = (): ReactElement => {
     })
   }
 
+  const {updated, toggle} = useContext(TaskStatusContext)
+
+  useEffect(()=>{
+    refetch()
+  }, [updated]);
+
+
+  useEffect(()=>{
+    if(updateTask.isSuccess){
+      toggle()
+    }
+  }, [updateTask.isSuccess])
+
   return (
     <Grid item md={8} px={4}>
       <Box mb={8} px={4}>
@@ -70,9 +87,9 @@ const Taskarea: FC = (): ReactElement => {
           xs={12}
           mb={8}
         >
-          <TaskCounter />
-          <TaskCounter />
-          <TaskCounter />
+          <TaskCounter status={Status.todo} count={data ? countTasks(data, Status.todo) : 0}/>
+          <TaskCounter status={Status.inProgress} count={data ? countTasks(data, Status.inProgress) : 0}/>
+          <TaskCounter status={Status.completed} count={data ? countTasks(data, Status.completed) : 0}/>
         </Grid>
         <Grid
           item

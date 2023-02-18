@@ -3,11 +3,12 @@ import {TextField} from '@mui/material'
 import { Itextfield } from './interfaces/Itextfield'
 import PropTypes from 'prop-types';
 
-const TaskTitleField: FC<Itextfield> = ({onChange, disabled=false}): ReactElement => {
+const TaskTitleField: FC<Itextfield> = ({onChange, disabled=false, value}): ReactElement => {
     
   return (
     <TextField
     id='title'
+    value={value}
     label='Task Title'
     placeholder='Task Title'
     variant='outlined'
