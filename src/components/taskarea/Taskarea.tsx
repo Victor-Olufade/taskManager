@@ -1,4 +1,9 @@
-import React, { FC, ReactElement, useEffect, useContext } from 'react';
+import React, {
+  FC,
+  ReactElement,
+  useEffect,
+  useContext,
+} from 'react';
 import {
   Grid,
   Box,
@@ -17,7 +22,6 @@ import { countTasks } from './helpers/CountTasks';
 import { TaskStatusContext } from '../../context';
 
 const Taskarea: FC = (): ReactElement => {
-
   const baseUrl = process.env.REACT_APP_BASEURL as string;
 
   const { error, isLoading, data, refetch } = useQuery(
@@ -30,38 +34,45 @@ const Taskarea: FC = (): ReactElement => {
     },
   );
 
-  const updateTask = useMutation(
-    (data: IupdateTask)=> sendApiRequest(baseUrl, 'PUT', data)
-  )
+  const updateTask = useMutation((data: IupdateTask) =>
+    sendApiRequest(baseUrl, 'PUT', data),
+  );
 
-  const onStatusChangeHandler = (e: React.ChangeEvent<HTMLInputElement>, id: string) => {
-    updateTask.mutate({
-      id,
-      status: e.target.checked ? Status.inProgress : Status.todo,
-    })
-  }
-
-  const onClickMarkComplete = (
-    e: React.MouseEvent<HTMLButtonElement> | React.MouseEvent<HTMLAnchorElement>, id: string
+  const onStatusChangeHandler = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    id: string,
   ) => {
     updateTask.mutate({
       id,
-      status: Status.completed
-    })
-  }
+      status: e.target.checked
+        ? Status.inProgress
+        : Status.todo,
+    });
+  };
 
-  const {updated, toggle} = useContext(TaskStatusContext)
+  const onClickMarkComplete = (
+    e:
+      | React.MouseEvent<HTMLButtonElement>
+      | React.MouseEvent<HTMLAnchorElement>,
+    id: string,
+  ) => {
+    updateTask.mutate({
+      id,
+      status: Status.completed,
+    });
+  };
 
-  useEffect(()=>{
-    refetch()
+  const { updated, toggle } = useContext(TaskStatusContext);
+
+  useEffect(() => {
+    refetch();
   }, [updated]);
 
-
-  useEffect(()=>{
-    if(updateTask.isSuccess){
-      toggle()
+  useEffect(() => {
+    if (updateTask.isSuccess) {
+      toggle();
     }
-  }, [updateTask.isSuccess])
+  }, [updateTask.isSuccess]);
 
   return (
     <Grid item md={8} px={4}>
@@ -87,9 +98,22 @@ const Taskarea: FC = (): ReactElement => {
           xs={12}
           mb={8}
         >
-          <TaskCounter status={Status.todo} count={data ? countTasks(data, Status.todo) : 0}/>
-          <TaskCounter status={Status.inProgress} count={data ? countTasks(data, Status.inProgress) : 0}/>
-          <TaskCounter status={Status.completed} count={data ? countTasks(data, Status.completed) : 0}/>
+          <TaskCounter
+            status={Status.todo}
+            count={data ? countTasks(data, Status.todo) : 0}
+          />
+          <TaskCounter
+            status={Status.inProgress}
+            count={
+              data ? countTasks(data, Status.inProgress) : 0
+            }
+          />
+          <TaskCounter
+            status={Status.completed}
+            count={
+              data ? countTasks(data, Status.completed) : 0
+            }
+          />
         </Grid>
         <Grid
           item
@@ -120,19 +144,19 @@ const Taskarea: FC = (): ReactElement => {
               data.length > 0 &&
               data.map((task) => (
                 <>
-                {task.status !== Status.completed && 
-                 <Task
-                 key={task.id}
-                 id={task.id}
-                 title={task.title}
-                 description={task.description}
-                 status={task.status}
-                 date={new Date(task.date)}
-                 priority={task.priority}
-                 onStatusChange={onStatusChangeHandler}
-                 onClick={onClickMarkComplete}
-               />
-                }
+                  {task.status !== Status.completed && (
+                    <Task
+                      key={task.id}
+                      id={task.id}
+                      title={task.title}
+                      description={task.description}
+                      status={task.status}
+                      date={new Date(task.date)}
+                      priority={task.priority}
+                      onStatusChange={onStatusChangeHandler}
+                      onClick={onClickMarkComplete}
+                    />
+                  )}
                 </>
               ))
             )}

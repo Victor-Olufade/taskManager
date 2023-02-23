@@ -1,0 +1,78 @@
+.resendotpinput{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.resendotpfield{
+    margin: auto;
+    top: 50%;
+    position: absolute; 
+    width: 40%;
+    height: 4em;
+    text-align: center;
+    border: 2px solid #000;
+    border-radius: 5%;
+    
+}
+
+.resendotpinstruction{
+    margin: auto;
+    top: 40%;
+    position: absolute; 
+    color: #FFD300;
+    font-family: cursive;
+    font-size: 1.5em;
+}
+
+.resendotpheader{
+    margin-top: 3em;
+    color: #FFAA1D;
+    font-family: cursive;
+    font-weight: bold;
+}
+
+.resendotp{
+    position: absolute;
+    top: 60%;
+    height: 3em;
+    width: 6em;
+    border-radius: 10%;
+    background-color: #FFAA1D; 
+    border: 2px solid #FFFF9F;
+    font-family: cursive;
+    font-weight: bold;
+    margin-top: 1em;
+}
+
+.closebutton{
+    margin-left: 65em;
+    margin-top: 0;
+    position: absolute;
+    height: 2.5em;
+    width: 4em;
+    font-weight: bold;
+    background-color: #FFAA1D; 
+    color: #FFF;
+}
+
+@media (max-width: 768px) {
+    .closebutton{
+        margin-left: 14em;
+        position: relative;
+        margin-top: 1em;
+    }
+
+    .resendotpfield{
+        width: 70%;
+    }
+
+    .resendotpheader{
+        width: 100%;
+        font-size:larger;
+        margin-left: 4em;
+    }
+}

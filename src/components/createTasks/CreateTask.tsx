@@ -1,4 +1,10 @@
-import React, { FC, ReactElement, useState, useEffect, useContext } from 'react';
+import React, {
+  FC,
+  ReactElement,
+  useState,
+  useEffect,
+  useContext,
+} from 'react';
 import {
   Box,
   Typography,
@@ -29,9 +35,10 @@ const CreateTask: FC = (): ReactElement => {
     Priority.normal,
   );
 
-  const {toggle} = useContext(TaskStatusContext)
+  const { toggle } = useContext(TaskStatusContext);
 
-  const [showSuccess, setShowSuccess] = useState<boolean>(false);
+  const [showSuccess, setShowSuccess] =
+    useState<boolean>(false);
 
   const baseUrl = process.env.REACT_APP_BASEURL as string;
 
@@ -60,19 +67,19 @@ const CreateTask: FC = (): ReactElement => {
     setDescription('');
   };
 
-  useEffect(()=>{
-    if(createTaskMutation.isSuccess){
-      setShowSuccess(true)
-      toggle()
+  useEffect(() => {
+    if (createTaskMutation.isSuccess) {
+      setShowSuccess(true);
+      toggle();
     }
-    const successTimeout = setTimeout(()=>{
-      setShowSuccess(false)
-    }, 5000)
+    const successTimeout = setTimeout(() => {
+      setShowSuccess(false);
+    }, 5000);
 
-    return ()=>{
-      clearTimeout(successTimeout)
-    }
-  },[createTaskMutation.isSuccess])
+    return () => {
+      clearTimeout(successTimeout);
+    };
+  }, [createTaskMutation.isSuccess]);
 
   return (
     <Box
@@ -83,17 +90,15 @@ const CreateTask: FC = (): ReactElement => {
       px={4}
       my={6}
     >
-
       {showSuccess && (
-         <Alert
-         severity="success"
-         sx={{ width: '100%', marginBottom: '10px' }}
-       >
-         <AlertTitle>Success</AlertTitle>
-         The task has been created successfully
-       </Alert>
+        <Alert
+          severity="success"
+          sx={{ width: '100%', marginBottom: '10px' }}
+        >
+          <AlertTitle>Success</AlertTitle>
+          The task has been created successfully
+        </Alert>
       )}
-     
 
       <Typography mb={2} component="h2" variant="h6">
         Create A Task
@@ -162,7 +167,7 @@ const CreateTask: FC = (): ReactElement => {
             }
           />
         </Stack>
-        {createTaskMutation.isLoading && <LinearProgress/>}
+        {createTaskMutation.isLoading && <LinearProgress />}
 
         <Button
           disabled={

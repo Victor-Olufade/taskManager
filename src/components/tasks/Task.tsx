@@ -11,14 +11,14 @@ import { renderPriorityBorderColor } from './helpers/RenderPriorityBorderColor';
 
 const Task: FC<Itask> = (props): ReactElement => {
   const {
-    title='title for now',
-    date= new Date(),
-    description='this is my task',
-    priority=Priority.normal,
-    status=Status.completed,
+    title = 'title for now',
+    date = new Date(),
+    description = 'this is my task',
+    priority = Priority.normal,
+    status = Status.completed,
     onStatusChange,
     onClick,
-    id
+    id,
   } = props;
   return (
     <Box
@@ -36,21 +36,26 @@ const Task: FC<Itask> = (props): ReactElement => {
         borderColor: renderPriorityBorderColor(priority),
       }}
     >
-      <TaskHeader title={title} date={date}/>
-      <TaskDescription description={description}/>
-      <TaskFooter onStatusChange={onStatusChange} onClick={onClick} id={id} status={status}/>
+      <TaskHeader title={title} date={date} />
+      <TaskDescription description={description} />
+      <TaskFooter
+        onStatusChange={onStatusChange}
+        onClick={onClick}
+        id={id}
+        status={status}
+      />
     </Box>
   );
 };
 
 Task.propTypes = {
-    title: PropTypes.string,
-    date: PropTypes.instanceOf(Date),
-    description: PropTypes.string,
-    onStatusChange: PropTypes.func.isRequired,
-    onClick: PropTypes.func.isRequired,
-    priority: PropTypes.string,
-    status: PropTypes.string
-}
+  title: PropTypes.string,
+  date: PropTypes.instanceOf(Date),
+  description: PropTypes.string,
+  onStatusChange: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
+  priority: PropTypes.string,
+  status: PropTypes.string,
+};
 
 export default Task;
