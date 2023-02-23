@@ -1,0 +1,48 @@
+.otpinput{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.otpfield{
+    margin: auto;
+    top: 50%;
+    position: absolute; 
+    width: 40%;
+    height: 4em;
+    text-align: center;
+    border: 2px solid #000;
+    border-radius: 5%;
+    
+}
+
+.otpinstruction{
+    margin: auto;
+    top: 40%;
+    position: absolute; 
+    color: #FFD300;
+    font-family: cursive;
+    font-size: 1.5em;
+}
+
+.otpheader{
+    margin-top: 3em;
+    color: #FFAA1D;
+    font-family: cursive;
+    font-weight: bold;
+}
+
+.resendotp{
+    position: absolute;
+    top: 60%;
+    height: 3em;
+    width: 6em;
+    border-radius: 10%;
+    background-color: #FFAA1D; 
+    border: 2px solid #FFFF9F;
+    font-family: cursive;
+    font-weight: bold;
+}

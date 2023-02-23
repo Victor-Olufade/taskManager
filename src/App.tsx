@@ -8,7 +8,10 @@ import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ComposeContext } from './context/Compose.Context';
 import { rootArrayContext } from './context/Root.Context';
-
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Login from './pages/login/Login';
+import Signup from './pages/signup/Signup';
+import Verify from './pages/verify/Verify';
 
 
 
@@ -22,10 +25,23 @@ const App: FC = (): ReactElement => {
   <QueryClientProvider client={queryClient}>
     <ToastContainer/>
     <ComposeContext components={rootArrayContext}>
+       
   <ThemeProvider theme={customTheme}>
       <CssBaseline/>
-      <Dashboard/>
-    </ThemeProvider>
+      
+     
+      <Router>
+       <Routes>
+          <Route path='/dashboard' element={<Dashboard/>}/>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/' element={<Signup/>}/>
+          <Route path='/verify' element={<Verify/>}/>
+      </Routes>
+
+</Router>
+          </ThemeProvider>
+       
+    
     </ComposeContext>
     <ReactQueryDevtools initialIsOpen={false}/>
   </QueryClientProvider> 

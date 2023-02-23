@@ -1,0 +1,101 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@200&display=swap');
+
+
+
+  .signupbody{
+      top: 50%;
+      left: 50%;
+      width: 21.875em;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      color: #fff;
+  }
+  
+  .header{
+      font-size: 2.5em;
+      text-align: center;
+      text-transform: uppercase;
+      margin: 2.5em 0;
+      font-family: cursive;
+      color: #000
+  }
+  
+  .signupform{
+      background-color: lightslategray;
+      border-radius: 10%;
+      border: 3px solid #FFFFE0;
+      max-height: 45em;
+      width: 100%;
+      margin-bottom: 1em;
+      /* border: 3px solid #BBBBBB */
+  }
+  
+  .signupform p{
+      font-size: 1.25em;
+      margin: 0.9375em 0;
+      font-family: cursive;
+      color: #000
+  }
+  
+  .signupform input{
+      font-size: 1em;
+      width: 80%;
+      padding: 0.9375em 0.625em;
+      margin-left: 2em;
+      align-items: center;
+      border: 0;
+      outline: none;
+      border-radius: 0.3125em;
+      font-family: cursive;
+      border: 1px solid #FFFFE0
+  }
+  
+  .signupform button{
+      font-size: 1.125em;
+      font-weight: bold;
+      margin: 1.25em 0;
+      padding: 0.625em 0.9375em;
+      width: 30%;
+      border-radius: 0.3125em;
+      border: 0;
+      background-color: #808080;
+      font-family: cursive;
+      margin-left: 2em;
+      color: #FFAA1D;
+  }
+  
+  body{
+      padding: 0; 
+      margin: 0;
+      font-family: sans-serif;  
+      background-image: url("../../assets/images/taskbackground.jpeg");
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
+  
+  .taskManger{
+      font-family: 'Great Vibes', cursive;
+      color: #FFAA1D;
+      margin-left: 0.5em;
+      font-size: 3em;
+      margin-top: 3em;
+  }
+
+  .signupfooter{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .verifyaccount{
+    margin-top: 2em;
+    margin-right: 2.3em;
+    color: #FFAA1D;
+  }
+
+
+  
+  
+  
+  
+  

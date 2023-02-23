@@ -90,7 +90,7 @@ const CreateTask: FC = (): ReactElement => {
          sx={{ width: '100%', marginBottom: '10px' }}
        >
          <AlertTitle>Success</AlertTitle>
-         The task has been created succefully
+         The task has been created successfully
        </Alert>
       )}
      

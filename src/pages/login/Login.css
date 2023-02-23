@@ -1,0 +1,97 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@200&display=swap');
+
+
+
+.loginbody{
+    top: 50%;
+    left: 50%;
+    width: 21.875em;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    color: #fff;
+}
+
+.header{
+    font-size: 2.5em;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 2.5em 0;
+    font-family: cursive;
+    color: #000
+}
+
+.loginform{
+    background-color: lightslategray;
+    border-radius: 10%;
+    border: 3px solid #FFFFE0
+    /* border: 3px solid #BBBBBB */
+}
+
+.loginform p{
+    font-size: 1.25em;
+    margin: 0.9375em 0;
+    font-family: cursive;
+    color: #000
+}
+
+.loginform input{
+    font-size: 1em;
+    width: 80%;
+    padding: 0.9375em 0.625em;
+    margin-left: 2em;
+    align-items: center;
+    border: 0;
+    outline: none;
+    border-radius: 0.3125em;
+    font-family: cursive;
+    border: 1px solid #FFFFE0
+}
+
+.loginform button{
+    font-size: 1.125em;
+    font-weight: bold;
+    margin: 1.25em 0;
+    padding: 0.625em 0.9375em;
+    width: 25%;
+    border-radius: 0.3125em;
+    border: 0;
+    background-color: #808080;
+    font-family: cursive;
+    margin-left: 2em;
+    color: #FFFF9F;
+}
+
+.entireLoginBody body{
+    padding: 0; 
+    margin: 0;
+    font-family: sans-serif;  
+    background-image: url("../../assets/images/taskbackground.jpeg");
+    background-size: cover;
+}
+
+.taskManger{
+    font-family: 'Great Vibes', cursive;
+/* font-family: 'Inter', sans-serif; */
+    color: #FFAA1D;
+    /* align-items: center; */
+    /* padding: 0.9375em 0.625em; */
+    margin-left: 0.5em;
+    font-size: 3em;
+    /* align-items: center; */
+}
+
+.loginfooter{
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttonside{
+    margin-top: 2em;
+    margin-right: 2.3em;
+    color: #FFFF9F;
+}
+
+
+
+
