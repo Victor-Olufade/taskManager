@@ -18,7 +18,8 @@
       text-transform: uppercase;
       margin: 2.5em 0;
       font-family: cursive;
-      color: #000
+      color: #000;
+      margin-top: 0.5em;
   }
   
   .signupform{
@@ -35,7 +36,8 @@
       font-size: 1.25em;
       margin: 0.9375em 0;
       font-family: cursive;
-      color: #000
+      color: #000;
+      margin-top: 0.1em;
   }
   
   .signupform input{

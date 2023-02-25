@@ -12,7 +12,7 @@ export const TaskStatusContextProvider: FC<PropsWithChildren> = (props): ReactEl
     const toggleHandler = () => {
         updated ? setUpdated(false) : setUpdated(true);
     }
-
+    
     return <TaskStatusContext.Provider value={{
         updated,
         toggle: toggleHandler
