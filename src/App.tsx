@@ -19,6 +19,7 @@ import {
 import Login from './pages/login/Login';
 import Signup from './pages/signup/Signup';
 import Verify from './pages/verify/Verify';
+import ProtectedRoute from './components/protectDashboard';
 
 const queryClient = new QueryClient();
 
@@ -34,10 +35,16 @@ const App: FC = (): ReactElement => {
 
             <Router>
               <Routes>
+               
                 <Route
                   path="/dashboard"
-                  element={<Dashboard />}
+                  element={
+                   <ProtectedRoute>
+                    <Dashboard />
+                  </ProtectedRoute>
+                }
                 />
+                
                 <Route path="/login" element={<Login />} />
                 <Route path="/" element={<Signup />} />
                 <Route

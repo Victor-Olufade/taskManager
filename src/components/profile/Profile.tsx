@@ -8,7 +8,7 @@ interface Iprofile {
     name?: string
 }
 
-const Profile: FC<Iprofile> = ({name = 'Victor'}): ReactElement => {
+const Profile: FC<Iprofile> = ({name}): ReactElement => {
   return (
     <Box
     display='flex'
@@ -25,7 +25,7 @@ const Profile: FC<Iprofile> = ({name = 'Victor'}): ReactElement => {
         }}
         >
         <Typography variant='h4' color='text.primary'>
-            {name.substring(0, 1)}
+            {name && name.substring(0, 1)}
         </Typography>
         </Avatar>
 

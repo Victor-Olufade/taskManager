@@ -1,10 +1,13 @@
-import React, { FC, ReactElement } from 'react'
+import React, { FC, ReactElement, useContext } from 'react'
 import {Grid} from '@mui/material'
 import Profile from '../profile/Profile';
 import CreateTask from '../createTasks/CreateTask';
+import { AuthContext } from '../../context/authenticationContext/auth';
 
 
 const Sidebar: FC = (): ReactElement => {
+  const {user} = useContext(AuthContext);
+  
   return (
     <Grid item md={4} sx={{
         height: '100vh',
@@ -18,7 +21,7 @@ const Sidebar: FC = (): ReactElement => {
         flexDirection: 'column',
         alignItems: 'center'
     }}>
-       <Profile name="Pelumi"/>
+       <Profile name={user && user.name}/>
        <CreateTask/>
     </Grid>
   )

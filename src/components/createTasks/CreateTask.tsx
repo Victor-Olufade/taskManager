@@ -24,6 +24,7 @@ import { sendApiRequest } from '../../helpers/sendApiRequests';
 import { IcreateTask } from '../taskarea/interfaces/IcreateTask';
 import { toast } from 'react-toastify';
 import { TaskStatusContext } from '../../context';
+import { useNavigate } from 'react-router-dom';
 
 const CreateTask: FC = (): ReactElement => {
   const [title, setTitle] = useState<string>('');
@@ -35,7 +36,9 @@ const CreateTask: FC = (): ReactElement => {
     Priority.normal,
   );
 
-  const { toggle } = useContext(TaskStatusContext);
+  const navigate = useNavigate();
+
+  const { toggle, logout } = useContext(TaskStatusContext);
 
   const [showSuccess, setShowSuccess] =
     useState<boolean>(false);
@@ -66,6 +69,10 @@ const CreateTask: FC = (): ReactElement => {
     setTitle('');
     setDescription('');
   };
+
+  const logoutNavigate = () => {
+    navigate('/login')
+  }
 
   useEffect(() => {
     if (createTaskMutation.isSuccess) {
@@ -183,6 +190,14 @@ const CreateTask: FC = (): ReactElement => {
           fullWidth
         >
           Create a task
+        </Button>
+        <Button
+          onClick={()=>{logout()}}
+          variant="contained"
+          size="large"
+          fullWidth
+        >
+          Logout
         </Button>
       </Stack>
     </Box>

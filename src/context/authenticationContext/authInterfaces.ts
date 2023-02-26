@@ -1,5 +1,4 @@
 import { Priority, Status } from "../../components/createTasks/enums";
-import { initialTaskState } from "./auth";
 
 
 export interface User{
@@ -8,7 +7,8 @@ export interface User{
     email: string,
     salt: string,
     verified: boolean,
-    tasks: Task[]
+    otp: string,
+    otpExpiry: string
 }
 
 export interface Task{
@@ -22,12 +22,5 @@ export interface Task{
     user: User
 }
 
-export const initialUserState: User = {
-    id: "",
-    name: "",
-    email: "",
-    salt: "",
-    verified: false,
-    tasks: []
-}
+
 
